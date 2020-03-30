@@ -1,0 +1,22 @@
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# CodeIgniter Subfolder .Htaccess
+# today hints by www.insanen.com
+Options +FollowSymLinks
+
+RewriteEngine On
+# Please do-not forget to change RewriteBase /YOUR-SUBFOLDER HERE
+RewriteBase /
+
+RewriteRule ^$ index.php [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $1 !^(static)
+
+RewriteRule ^(.*)$ index.php?/$1 [L]
