@@ -1,6 +1,6 @@
 INSERT INTO covid_regions VALUES (13, 'Abruzzo');
 INSERT INTO covid_regions VALUES (17, 'Basilicata');
-INSERT INTO covid_regions VALUES (4, 'P.A. Bolzano');
+INSERT INTO covid_regions VALUES (40, 'P.A. Bolzano');
 INSERT INTO covid_regions VALUES (18, 'Calabria');
 INSERT INTO covid_regions VALUES (15, 'Campania');
 INSERT INTO covid_regions VALUES (8, 'Emilia Romagna');
@@ -15,6 +15,7 @@ INSERT INTO covid_regions VALUES (16, 'Puglia');
 INSERT INTO covid_regions VALUES (20, 'Sardegna');
 INSERT INTO covid_regions VALUES (19, 'Sicilia');
 INSERT INTO covid_regions VALUES (9, 'Toscana');
+INSERT INTO covid_regions VALUES (41, 'P.A. Trento');
 INSERT INTO covid_regions VALUES (10, 'Umbria');
 INSERT INTO covid_regions VALUES (2, 'Valle d\'Aosta');
 INSERT INTO covid_regions VALUES (5, 'Veneto');

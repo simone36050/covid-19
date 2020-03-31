@@ -17,6 +17,12 @@ def main():
             prov_id = row['codice_provincia']
             name = row['denominazione_provincia'].replace('\'', '\\\'')
             code = row['sigla_provincia']
+            region_name = row['denominazione_regione']
+
+            if region_name == 'P.A. Bolzano':
+                region = 40
+            if region_name == 'P.A. Trento':
+                region = 41
             
             print("INSERT INTO covid_provinces VALUES ({}, '{}', '{}', {});".format(prov_id, name, code, region))
             provinces.append(prov_id)
