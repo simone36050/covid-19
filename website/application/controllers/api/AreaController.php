@@ -17,7 +17,7 @@ class AreaController extends CI_Controller {
         try {
             $only_region = $this->params->flag('only_region');
             $regions = $this->params->list_int('regions', true, null);
-        } catch (ParamsException $e) {
+        } catch (ParamException $e) {
             $this->json->error(1, "Wrong input");
             return;
         }
