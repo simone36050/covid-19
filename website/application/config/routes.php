@@ -52,3 +52,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// api
+$route['api/area'] = 'api/AreaController/index';
+$route['api/provinces'] = 'api/provinces/index';
+$route['api/regions'] = 'api/provinces/index';
+$route['api/nation'] = 'api/nation/index';
+
+
+
