@@ -9,8 +9,7 @@ class AreaController extends CI_Controller {
         $this->load->library('params');
     }
 
-    public function index()
-    {
+    public function index() {
         $this->load->model('area');
 
         // read input

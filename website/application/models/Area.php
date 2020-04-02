@@ -2,6 +2,10 @@
 
 class Area extends CI_Model {
 
+    public function __construct() {
+        parent::__construct();
+    }
+
     public function list_only_region($regions) {
         // statement
         $sql = "SELECT R.id, R.name FROM covid_regions R";
