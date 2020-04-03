@@ -1,6 +1,6 @@
 <?php
 
-class ProvincesController extends CI_Controller {
+class RegionsController extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -10,19 +10,19 @@ class ProvincesController extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('provinces');
-
+        $this->load->model('regions');
+        
         $modes = array('absolute', 'relative');
-        $groups = array('province', 'date');
-        $datas = array('cases');
+        $groups = array('region', 'date');
+        $datas = array('icu', 'hospitalized', 'isolation', 'positives', 'cures', 'dead', 'swabs');
 
         // read input
         try {
             $mode = $this->params->choice('mode', $modes, true, 'absolute');
-            $group = $this->params->choice('group', $groups, true, 'province');
+            $group = $this->params->choice('group', $groups, true, 'region');
             $from = $this->params->date('from', true, null);
             $to = $this->params->date('to', true, null);
-            $provinces = $this->params->list_int('provinces', true, null);
+            $regions = $this->params->list_int('regions', true, null);
             $data = $this->params->multiple_choice('data', $datas, true, $datas);
 
             if(sizeof($data) === 0)
@@ -36,11 +36,12 @@ class ProvincesController extends CI_Controller {
         $this->load->database();
 
         // read data from database
-        $out = $this->provinces->get_data($mode, $group, $from, $to, $provinces, $data);
+        $out = $this->regions->get_data($mode, $group, $from, $to, $regions, $data);
 
         if($out !== null)
             $this->json->success($out);
         else
             $this->json->error(2, "Database error");
+
     }
 }
