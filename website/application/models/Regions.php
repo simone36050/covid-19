@@ -266,4 +266,58 @@ class Regions extends CI_Model {
         return $out;
     }
 
+    public function update_regions() {
+        // curl regions
+        $ch = curl_init("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni.json");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $json = json_decode(curl_exec($ch), true);
+
+        // database last date
+        $query = $this->db->query("SELECT MAX(RT.date) AS `date` FROM covid_regional_trend RT");
+        if($this->db->error()['code'] !== 0)
+            return false;
+
+        // get db last date
+        $row = $query->row();
+        $last_date = null;
+        if(isset($row))
+            $last_date = strtotime($row->date);
+
+        // prepera insert query
+        $params = array();
+        $values = array();
+        
+        foreach($json as $row) {
+            $date = explode('T', $row['data'])[0];
+            if($last_date === null || strtotime($date) > $last_date) {
+                $params[] = "(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+                if($row['denominazione_regione'] === 'P.A. Trento')
+                    $values[] = 41;
+                elseif($row['denominazione_regione'] === 'P.A. Bolzano')
+                    $values[] = 40;
+                else
+                    $values[] = $row['codice_regione'];
+
+                $values[] = $date;
+                $values[] = $row['terapia_intensiva']; // icu
+                $values[] = $row['ricoverati_con_sintomi']; // hospitalized no icu
+                $values[] = $row['isolamento_domiciliare']; // isolated
+                $values[] = $row['totale_positivi']; // positives
+                $values[] = $row['dimessi_guariti']; // cures
+                $values[] = $row['deceduti']; // dead
+                $values[] = $row['tamponi']; // swabs
+            }
+        }
+
+        if(sizeof($params) > 0) {
+            // insert to database
+            $sql = "INSERT INTO covid_regional_trend VALUES :values:";
+            $sql = str_replace(':values:', join(', ', $params), $sql);
+            $this->db->query($sql, $values);
+        }
+        
+        return $this->db->error()['code'] === 0;
+    }
+
 }

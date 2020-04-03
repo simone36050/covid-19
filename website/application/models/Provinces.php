@@ -182,4 +182,48 @@ class Provinces extends CI_Model {
         return $out;
     }
 
+    public function update_provinces() {
+        // curl regions
+        $ch = curl_init("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-province.json");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $json = json_decode(curl_exec($ch), true);
+
+        // database last date
+        $query = $this->db->query("SELECT MAX(PT.date) AS `date` FROM covid_provincial_trend PT");
+        if($this->db->error()['code'] !== 0)
+            return false;
+
+        // get db last date
+        $row = $query->row();
+        $last_date = null;
+        if(isset($row))
+            $last_date = strtotime($row->date);
+
+        // prepera insert query
+        $params = array();
+        $values = array();
+
+        foreach($json as $row) {
+            $date = explode('T', $row['data'])[0];
+            if($row['denominazione_provincia'] !== 'In fase di definizione/aggiornamento') {
+                if($last_date === null || strtotime($date) > $last_date) {
+                    $params[] = "(?, ?, ?)";
+
+                    $values[] = $row['codice_provincia']; // province code
+                    $values[] = $date;
+                    $values[] = $row['totale_casi']; // cases
+                }
+            }
+        }
+
+        if(sizeof($params) > 0) {
+            // insert to database
+            $sql = "INSERT INTO covid_provincial_trend VALUES :values:";
+            $sql = str_replace(':values:', join(', ', $params), $sql);
+            $this->db->query($sql, $values);
+        }
+        
+        return $this->db->error()['code'] === 0;
+    }
+
 }
