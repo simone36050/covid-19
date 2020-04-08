@@ -10,6 +10,7 @@ class Json {
 
     protected function header() {
         header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
     }
 
     public function success($data) {
