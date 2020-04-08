@@ -60,5 +60,7 @@ $route['api/regions'] = 'api/RegionsController/index';
 $route['api/nation'] = 'api/nation/index';
 $route['api/update'] = 'api/UpdateController/index';
 
+// documentation
+$route['documentation'] = 'documentation/index';
 
 
