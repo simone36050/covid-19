@@ -1,0 +1,53 @@
+<html>
+    <header>
+         <link rel="stylesheet" href="/static/css/base.css">
+         <link rel="stylesheet" href="/static/css/province.css">
+         <script src="/static/js/jquery-3.4.1.min.js"></script>
+         <script src="/static/js/button_Provincie.js"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
+    </header>
+    <body >
+        <div class="container">
+            <div class="relative">
+                <div class="grafico" id = "grafico">
+                </div>                
+                <div class="lato">
+                    <a href="/webapp/home"><button class="back">Back</button></a>  
+                    <h6>Regioni</h6>
+                    <button class="reg v" value="13">Abruzzo</button>
+                    <button class="reg v" value="17">Basilicata</button>
+                    <button class="reg v" value="18">Calbria</button>
+                    <br>
+                    <button class="reg v" value="15">Campania</button>
+                    <button class="reg v" value="8">Emilia Romagna</button>
+                    <button class="reg v" value="6">Friuli-Venezia Giulia</button>
+                    <br>
+                    <button class="reg v" value="12">Lazio</button>
+                    <button class="reg v" value="7">Liguria</button>
+                    <button class="reg v" value="3">Lombardia</button>
+                    <br>
+                    <button class="reg v" value="11">Marche</button>
+                    <button class="reg v" value="14">Molise</button>
+                    <button class="reg v" value="1">Piemonte</button>
+
+                    <br>
+                    <button class="reg v" value="16">Puglia</button>
+                    <button class="reg v" value="20">Sardegna</button>
+                    <button class="reg v" value="19">Sicilia</button>
+                    <br>
+                    <button class="reg v" value="9">Toscana</button>
+                    <button class="reg v" value="40">Bolzano PA</button>
+                    <button class="reg v" value="41">Trento PA</button>
+
+                    <br>
+                    <button class="reg v" value="10">Umbria</button>
+                    <button class="reg v" value="2">Val d'Aosta</button>
+                    <button class="reg a" value="5">Veneto</button>
+                    <br>
+                </div>
+            </div> 
+            <img src="/static/img/Chart-2.jpg">
+        </div>
+    </body>
+</html>
+<!-- HTML srcitto da Matteo Zigante>

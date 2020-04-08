@@ -63,4 +63,8 @@ $route['api/update'] = 'api/UpdateController/index';
 // documentation
 $route['documentation'] = 'documentation/index';
 
+// webapp
+$route['webapp/home'] = 'webapp/WebappController/home';
+$route['webapp/province'] = 'webapp/WebappController/province';
+$route['webapp/regioni'] = 'webapp/WebappController/regioni';
 
