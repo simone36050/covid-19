@@ -108,7 +108,7 @@ function Graph(j,pro,nam) {
     {        
         axisX:
         {
-            title:"Grioni Trascorsi",
+            title:"Giorni Trascorsi",
         },
         axisY:
         {
