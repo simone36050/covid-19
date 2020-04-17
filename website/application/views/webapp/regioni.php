@@ -1,9 +1,9 @@
 <html>
     <header>
-         <link rel="stylesheet" href="<?php echo site_url("/static/css/base.css"); ?>">
-         <link rel="stylesheet" href="<?php echo site_url("/static/css/regioni.css"); ?>">
-         <script src="<?php echo site_url("/static/js/jquery-3.4.1.min.js"); ?>"></script>
-         <script src="<?php echo site_url("/static/js/button_Regioni.js"); ?>"></script>
+         <link rel="stylesheet" href="<?php echo site_url("static/css/base.css"); ?>">
+         <link rel="stylesheet" href="<?php echo site_url("static/css/regioni.css"); ?>">
+         <script src="<?php echo site_url("static/js/jquery-3.4.1.min.js"); ?>"></script>
+         <script src="<?php echo site_url("static/js/button_Regioni.js"); ?>"></script>
         <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>        
     </header>
     <body >
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <img src="/static/img/Chart-1.jpg">
+            <img src="<?php echo site_url("/static/img/Chart-1.jpg"); ?>">
         </div>
     </body>
 </html>

@@ -1,7 +1,7 @@
 <html>
     <header>
-         <link rel="stylesheet" href="<?php echo site_url("/static/css/base.css"); ?>">
-         <link rel="stylesheet" href="<?php echo site_url("/static/css/home.css"); ?>">
+         <link rel="stylesheet" href="<?php echo site_url("static/css/base.css"); ?>">
+         <link rel="stylesheet" href="<?php echo site_url("static/css/home.css"); ?>">
     </header>
     <body >
         <div class="container">
@@ -12,7 +12,7 @@
                 <a href="regioni"><button class="b-1">Regioni</button></a>
                 <a href="province"><button class="b-2">Province</button></a>
             </div>
-            <img src="/static/img/back-home.png">
+            <img src="<?php echo site_url("static/img/back-home.png"); ?>">
         </div>
     </body>
 </html>
