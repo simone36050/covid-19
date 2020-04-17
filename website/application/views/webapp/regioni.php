@@ -12,7 +12,7 @@
                 <div class="grafico" id = "grafico">
                 </div>                
                 <div class="lato">
-                    <a href="/webapp/home"><button class="back">Back</button></a>
+                    <a href="<?php echo site_url("webapp/home"); ?>"><button class="back">Back</button></a>
                     <br><br>
                     <h6>Tipi di dati</h6>
                     <button class="b-1 v" value="isolation"> Isolati</button>

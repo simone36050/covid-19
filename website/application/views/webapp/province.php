@@ -12,7 +12,7 @@
                 <div class="grafico" id = "grafico">
                 </div>                
                 <div class="lato">
-                    <a href="/webapp/home"><button class="back">Back</button></a>  
+                    <a href="<?php echo site_url("webapp/home"); ?>"><button class="back">Back</button></a>  
                     <h6>Regioni</h6>
                     <button class="reg v" value="13">Abruzzo</button>
                     <button class="reg v" value="17">Basilicata</button>
