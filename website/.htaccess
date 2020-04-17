@@ -12,7 +12,7 @@ Options +FollowSymLinks
 
 RewriteEngine On
 # Please do-not forget to change RewriteBase /YOUR-SUBFOLDER HERE
-RewriteBase /
+# RewriteBase /
 
 RewriteRule ^$ index.php [L]
 RewriteCond %{REQUEST_FILENAME} !-d
