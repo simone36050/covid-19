@@ -1,7 +1,7 @@
 <html>
     <header>
-         <link rel="stylesheet" href="/static/css/base.css">
-         <link rel="stylesheet" href="/static/css/home.css">
+         <link rel="stylesheet" href="<?php echo site_url("/static/css/base.css"); ?>">
+         <link rel="stylesheet" href="<?php echo site_url("/static/css/home.css"); ?>">
     </header>
     <body >
         <div class="container">

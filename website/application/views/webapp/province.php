@@ -1,9 +1,9 @@
 <html>
     <header>
-         <link rel="stylesheet" href="/static/css/base.css">
-         <link rel="stylesheet" href="/static/css/province.css">
-         <script src="/static/js/jquery-3.4.1.min.js"></script>
-         <script src="/static/js/button_Provincie.js"></script>
+         <link rel="stylesheet" href="<?php echo site_url("/static/css/base.css"); ?>">
+         <link rel="stylesheet" href="<?php echo site_url("/static/css/province.css"); ?>">
+         <script src="<?php echo site_url("/static/js/jquery-3.4.1.min.js"); ?>"></script>
+         <script src="<?php echo site_url("/static/js/button_Provincie.js"); ?>"></script>
         <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
     </header>
     <body >
